@@ -7,6 +7,32 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ===== PIXEL DO FACEBOOK (Meta) — Pixel ID: 2112214732840317 ===== -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2112214732840317');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2112214732840317&ev=PageView&noscript=1"/></noscript>
+
+<!-- ===== PIXEL DO TIKTOK =====
+Troque SEU_TIKTOK_PIXEL_ID_AQUI pelo ID que você encontra no TikTok Ads Manager > Ferramentas > Eventos -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<e.length;n++)ttq.setAndDefer(e,e[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+  ttq.load('SEU_TIKTOK_PIXEL_ID_AQUI');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+
 <style>
   :root{
     --bg:#F4FAFF;
@@ -131,6 +157,15 @@
   .trustrow div{display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--ink-soft);}
   .trustrow i{font-size:16px; color:var(--green-dark);}
 
+  /* stat strip - dimensão do material */
+  .stat-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:22px 0 4px;}
+  .stat-box{
+    background:var(--card); border:1.5px solid var(--line); border-radius:16px;
+    padding:14px 6px; text-align:center;
+  }
+  .stat-num{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:26px; color:var(--coral-dark); line-height:1;}
+  .stat-label{font-size:10.5px; font-weight:800; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.03em; margin-top:4px;}
+
   /* countdown */
   .countdown-bar{
     background:var(--ink); color:#fff; text-align:center;
@@ -143,6 +178,11 @@
   /* section titles */
   .eyebrow{font-size:12.5px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--coral-dark);}
   .sec-title{font-size:24px; font-weight:700; margin:8px 0 10px;}
+  .stat-total{
+    background:var(--ink); border-radius:16px; padding:16px; text-align:center; margin-bottom:8px;
+  }
+  .stat-total .num{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:30px; color:var(--yellow);}
+  .stat-total .lbl{font-size:12px; font-weight:700; color:#C9DAE8; margin-top:4px;}
   .sec-sub{color:var(--ink-soft); font-weight:600; font-size:15px; margin-bottom:22px;}
   .center{text-align:center;}
 
@@ -277,7 +317,7 @@
   <div class="wrap">
     <div class="stamp">Original • Trazido dos Estados Unidos</div>
     <h1>Seu filho aprende <span class="crayon">inglês de verdade<svg viewBox="0 0 300 14" preserveAspectRatio="none"><path d="M2 10 Q 75 2, 150 8 T 298 6" stroke="#FFC845" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span> brincando e colorindo</h1>
-    <p class="sub">O mesmo método usado em salas de aula americanas, agora em PDF para imprimir e colorir em casa — sem tela, sem aplicativo, sem enrolação.</p>
+    <p class="sub">O mesmo método usado em salas de aula americanas — 250+ palavras de alta frequência, cada uma com seu próprio material de 70 páginas pra imprimir e colorir em casa.</p>
 
     <div class="mock-book">
       <div class="mock-page" id="carouselPage">
@@ -292,13 +332,19 @@
         </div>
       </div>
       <div class="carousel-dots" id="carouselDots"></div>
-      <div class="mock-count"><span id="carouselCount">1</span> de 10 páginas de exemplo</div>
+      <div class="mock-count"><span id="carouselCount">1</span> de 10 palavras de amostra (cada uma com material de 70 páginas)</div>
     </div>
 
     <div class="price-block">
       <div class="price-old">De R$ 39,90</div>
       <div class="price-new">R$ 12,90</div>
       <div class="price-tag">Você economiza 68% hoje</div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-box"><div class="stat-num">250+</div><div class="stat-label">Palavras</div></div>
+      <div class="stat-box"><div class="stat-num">70</div><div class="stat-label">Páginas/palavra</div></div>
+      <div class="stat-box"><div class="stat-num">17,5mil+</div><div class="stat-label">Páginas no total</div></div>
     </div>
 
     <a href="#comprar" class="cta-btn">Quero o material agora →</a>
@@ -332,8 +378,18 @@
 <section>
   <div class="wrap center">
     <p class="eyebrow">O que vem dentro</p>
-    <h2 class="sec-title">Um PDF pra cada palavra do dia a dia</h2>
-    <p class="sec-sub">Cada página ensina uma palavra em inglês do jeito que uma criança aprende de verdade: vendo, ouvindo o som, escrevendo e colorindo.</p>
+    <h2 class="sec-title">250+ palavras, cada uma com seu próprio material de 70 páginas</h2>
+    <p class="sec-sub">Não é um PDF genérico com um pouco de cada coisa: cada palavra de alta frequência tem seu próprio caderno de 70 páginas de atividades — pra fixar de verdade, com repetição, prática e muita coloração.</p>
+
+    <div class="stat-strip">
+      <div class="stat-box"><div class="stat-num">250+</div><div class="stat-label">Palavras</div></div>
+      <div class="stat-box"><div class="stat-num">70</div><div class="stat-label">Páginas por palavra</div></div>
+      <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Só em inglês</div></div>
+    </div>
+    <div class="stat-total">
+      <div class="num">17.500+ páginas</div>
+      <div class="lbl">de conteúdo de atividades no material completo</div>
+    </div>
 
     <div class="demo-grid">
       <div class="demo-card">
@@ -359,6 +415,10 @@
     </div>
 
     <ul class="checklist">
+      <li>
+        <i class="ti ti-stack-2-filled"></i>
+        <div><b>Um material de 70 páginas para cada palavra</b><span>Nada de arquivo raso: cada palavra vem com um caderno completo de atividades, não só uma página avulsa.</span></div>
+      </li>
       <li>
         <i class="ti ti-circle-check-filled"></i>
         <div><b>Material 100% em inglês, sem tradução</b><span>Seu filho aprende do jeito nativo: associando a palavra direto à imagem, sem passar pelo português.</span></div>
@@ -408,8 +468,8 @@
       <div class="stamp">Oferta de hoje</div>
       <div class="price-old">De R$ 39,90</div>
       <div class="price-new">R$ 12,90</div>
-      <p style="font-size:13.5px; font-weight:700; color:var(--ink-soft); margin:10px 0 18px;">Pagamento único • Acesso vitalício ao PDF</p>
-      <a href="#" class="cta-btn">Garantir por R$ 12,90 →</a>
+      <p style="font-size:13.5px; font-weight:700; color:var(--ink-soft); margin:10px 0 18px;">Pagamento único • 250+ palavras, 70 páginas cada • Acesso vitalício</p>
+      <a href="https://pay.kiwify.com.br/SEU-LINK-DE-CHECKOUT" class="cta-btn checkout-link" id="mainCheckoutBtn">Garantir por R$ 12,90 →</a>
       <p class="cta-sub">🔒 Compra 100% segura via Kiwify</p>
     </div>
 
@@ -466,7 +526,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">É digital ou chega impresso? <i class="ti ti-chevron-down"></i></div>
-        <div class="faq-a"><p>É um arquivo PDF digital, liberado na hora após a compra. Você imprime em casa quantas vezes quiser.</p></div>
+        <div class="faq-a"><p>São mais de 250 arquivos PDF digitais — um pra cada palavra de alta frequência, com 70 páginas de atividades cada um. Tudo liberado na hora após a compra, pra você imprimir em casa quantas vezes quiser.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Como eu recebo o material? <i class="ti ti-chevron-down"></i></div>
@@ -521,6 +581,21 @@
     document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
     if(!wasOpen){ item.classList.add('open'); }
   }
+
+  (function checkoutTracking(){
+    var params = window.location.search;
+    document.querySelectorAll('.checkout-link').forEach(function(link){
+      if(params){
+        var base = link.getAttribute('href');
+        var sep = base.indexOf('?') === -1 ? '?' : '&';
+        link.setAttribute('href', base + sep + params.substring(1));
+      }
+      link.addEventListener('click', function(){
+        if(typeof fbq === 'function'){ fbq('track', 'InitiateCheckout'); }
+        if(typeof ttq !== 'undefined'){ ttq.track('InitiateCheckout'); }
+      });
+    });
+  })();
 
   (function productCarousel(){
     var pages = [
