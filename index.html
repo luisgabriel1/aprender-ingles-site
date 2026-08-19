@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aprender Inglês Brincando — Material Original dos Estados Unidos</title>
+<link rel="icon" type="img" href="Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -131,13 +132,24 @@ Troque SEU_TIKTOK_PIXEL_ID_AQUI pelo ID que você encontra no TikTok Ads Manager
   .carousel-dots span{width:6px; height:6px; border-radius:50%; background:#C7DCEC; transition:background .2s ease, width .2s ease;}
   .carousel-dots span.active{background:var(--coral); width:16px; border-radius:4px;}
   .mock-count{font-size:11px; font-weight:700; color:var(--ink-soft); text-align:center; margin-top:8px;}
-  .mock-outline{
-    width:130px; height:110px; margin:14px auto 10px;
-    border:3px solid #BBD4E8; border-radius:50% 50% 45% 45%/60% 60% 40% 40%;
-    display:flex; align-items:center; justify-content:center;
-    background:repeating-linear-gradient(135deg, #FBFDFE 0 8px, #F2F8FC 8px 16px);
+.mock-outline{
+  width:160px;
+  height:150px;
+  margin:14px auto 10px;
+  border:2.5px dashed #C7DCEC;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#FFFFFF;
+  overflow:hidden;
+}
+  .mock-outline img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:8px;
   }
-  .mock-outline i{font-size:34px; color:#BBD4E8;}
   .mock-crayons{display:flex; justify-content:center; gap:6px; margin-top:12px;}
   .mock-crayons span{width:18px; height:18px; border-radius:5px; display:inline-block;}
 
@@ -327,7 +339,13 @@ Troque SEU_TIKTOK_PIXEL_ID_AQUI pelo ID que você encontra no TikTok Ads Manager
     <div class="mock-book">
       <div class="mock-page" id="carouselPage">
         <div class="mock-word" id="carouselWord">APPLE<small id="carouselPhon">/ˈæp·əl/</small></div>
-        <div class="mock-outline"><i class="ti ti-apple" id="carouselIcon"></i></div>
+        <div class="mock-outline">
+          <img
+           id="carouselImage"
+           src="/images/apple.png"
+           alt="Apple"
+          >
+        </div>
         <div class="mock-crayons">
           <span style="background:#FF6B4A"></span>
           <span style="background:#FFC845"></span>
@@ -604,21 +622,61 @@ Troque SEU_TIKTOK_PIXEL_ID_AQUI pelo ID que você encontra no TikTok Ads Manager
 
   (function productCarousel(){
     var pages = [
-      {word:"APPLE", phon:"/ˈæp·əl/", icon:"ti-apple"},
-      {word:"DOG", phon:"/dɔːg/", icon:"ti-paw"},
-      {word:"SUN", phon:"/sʌn/", icon:"ti-sun"},
-      {word:"CAR", phon:"/kɑːr/", icon:"ti-car"},
-      {word:"BOOK", phon:"/bʊk/", icon:"ti-book-2"},
-      {word:"HOUSE", phon:"/haʊs/", icon:"ti-home"},
-      {word:"STAR", phon:"/stɑːr/", icon:"ti-star"},
-      {word:"FISH", phon:"/fɪʃ/", icon:"ti-fish"},
-      {word:"CLOUD", phon:"/klaʊd/", icon:"ti-cloud"},
-      {word:"BALL", phon:"/bɔːl/", icon:"ti-ball-basketball"}
-    ];
+  {
+    word:"APPLE",
+    phon:"/ˈæp.əl/",
+    image:"/images/apple.png"
+  },
+  {
+    word:"DOG",
+    phon:"/dɔːɡ/",
+    image:"/images/dog.png"
+  },
+  {
+    word:"BUS",
+    phon:"/bʌs/",
+    image:"/images/bus.png"
+  },
+  {
+    word:"CAT",
+    phon:"/kæt/",
+    image:"/images/cat.png"
+  },
+  {
+    word:"MILK",
+    phon:"/mɪlk/",
+    image:"/images/milk.png"
+  },
+  {
+    word:"BOOK",
+    phon:"/bʊk/",
+    image:"/images/book.png"
+  },
+  {
+    word:"SUN",
+    phon:"/sʌn/",
+    image:"/images/sun.png"
+  },
+  {
+    word:"HOUSE",
+    phon:"/haʊs/",
+    image:"/images/house.png"
+  },
+  {
+    word:"CAR",
+    phon:"/kɑːr/",
+    image:"/images/car.png"
+  },
+  {
+    word:"TREE",
+    phon:"/triː/",
+    image:"/images/tree.png"
+  }
+];
     var page = document.getElementById('carouselPage');
     var wordEl = document.getElementById('carouselWord');
     var phonEl = document.getElementById('carouselPhon');
-    var iconEl = document.getElementById('carouselIcon');
+    var imageEl = document.getElementById('carouselImage');
     var countEl = document.getElementById('carouselCount');
     var dotsWrap = document.getElementById('carouselDots');
     var dots = [];
@@ -632,7 +690,8 @@ Troque SEU_TIKTOK_PIXEL_ID_AQUI pelo ID que você encontra no TikTok Ads Manager
     function render(idx){
       wordEl.firstChild.textContent = pages[idx].word;
       phonEl.textContent = pages[idx].phon;
-      iconEl.className = 'ti ' + pages[idx].icon;
+      imageEl.src = pages[idx].image;
+      imageEl.alt = pages[idx].word;
       countEl.textContent = idx + 1;
       dots.forEach(function(d,i){ d.classList.toggle('active', i === idx); });
     }
